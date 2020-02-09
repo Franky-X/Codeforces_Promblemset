@@ -1,26 +1,16 @@
-//Tetrahedron.Tetrahedron has 4 triangular faces.
-//Cube.Cube has 6 square faces.
-//Octahedron.Octahedron has 8 triangular faces.
-//Dodecahedron.Dodecahedron has 12 pentagonal faces.
-//Icosahedron.Icosahedron has 20 triangular faces.
-#include<stdio.h>
+#include <stdio.h>
 int main()
 {
-	char str[20];
-	int n, s=0;
-	scanf("%d", &n);
-	getchar();
+	int n,m;
+	long long int a[100], max = 0, i = 0, s = 0;
+	scanf("%d", &n), m = n;;
 	while (n--)
 	{
-		gets(str);
-		switch (str[0])
-		{
-			case 'T': s += 4; break;
-			case 'C': s += 6; break;
-			case 'O': s += 8; break;
-			case 'D': s += 12; break;
-			case 'I': s += 20; break;
-		}
+		scanf("%lld", &a[i]);
+		if (a[i] > max)	max = a[i];
+		i++;
 	}
-	printf("%d", s);
+	for (i = 0; i < m; i++)
+		s += (max - a[i]);
+	printf("%lld", s);
 }
